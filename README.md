@@ -1,6 +1,14 @@
 # Distributed Chat [![GPLv3 license](https://img.shields.io/badge/license-GPLv3-blue.svg)](https://github.com/CodePeters/Pacman/blob/master/LICENSE)
 
-**A distributed chat implemented in Java. There are two main classes-componentes. Firstly the Tracker (Tracker.java) which keeps track of all users by registering new users, keeping informatiion about them (e.g Udp ports) and  also checking if someone goes down where in this case deletes this user. The other basic component is the client (client). You can start a new client in order to participate in one or more team chats. When designing a distributed chat system the main topic is whether each user will see the group messages in the same order that other users see them, because messages may arrive in different order in different client. To solve this issue we implemented two modes, the first one guarantees fifo ordering and the second mode uses isis algorithm for total ordering. Also since this is a chat system, each client needs to run multiple threads for example one thread to listen to a Udp port for new messages and another thread for sending new messages, so we need to use some locks for handling concurrent access and writes to data structures. In most cases we used concurrent data structures that java library provides for high performance.**
+**A distributed chat implemented in Java.** 
+
+There are two main classes-componentes. Firstly the Tracker (Tracker.java) which keeps track of all users by registering new users, keeping informatiion about them (e.g Udp ports) and  also checking if someone goes down where in this case deletes this user. 
+
+The other basic component is the client (client). You can start a new client in order to participate in one or more team chats.
+
+When designing a distributed chat system the main topic is whether each user will see the group messages in the same order that other users see them, because messages may arrive in different order in different client. To solve this issue we implemented two modes, the first one guarantees fifo ordering and the second mode uses isis algorithm for total ordering. 
+
+Also since this is a chat system, each client needs to run multiple threads for example one thread to listen to a Udp port for new messages and another thread for sending new messages, so we need to use some locks for handling concurrent access and writes to data structures. In most cases we used concurrent data structures that java library provides for high performance.
 ______________________________________
 
 ## Contributors:
